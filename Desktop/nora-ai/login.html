@@ -1,62 +1,64 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - NORA AI</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Nora AI</title>
+  <link rel="stylesheet" href="style.css" />
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
     .login-container {
-      max-width: 350px;
-      margin: 100px auto;
-      background: white;
+      background-color: #222;
       padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      box-shadow: 0 0 10px #000;
+      width: 300px;
+    }
+    .login-container h2 {
+      margin-top: 0;
       text-align: center;
     }
-
     input[type="text"],
     input[type="password"] {
       width: 100%;
-      padding: 12px;
-      margin-top: 10px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 16px;
-    }
-
-    button {
-      margin-top: 20px;
-      width: 100%;
-      padding: 12px;
-      background-color: #4da6ff;
+      padding: 10px;
+      margin: 10px 0;
       border: none;
+      border-radius: 5px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4caf50;
       color: white;
-      font-size: 16px;
-      border-radius: 8px;
+      border: none;
+      border-radius: 5px;
       cursor: pointer;
     }
-
-    button:hover {
-      background-color: #388de0;
-    }
-
-    .error {
-      margin-top: 15px;
+    #error-message {
       color: red;
-      font-size: 14px;
+      text-align: center;
+      margin-top: 10px;
       display: none;
     }
   </style>
 </head>
 <body>
   <div class="login-container">
-    <h2>Login NORA AI</h2>
+    <h2>Login</h2>
     <input type="text" id="username" placeholder="Username" />
     <input type="password" id="password" placeholder="Password" />
     <button onclick="login()">Entra</button>
-    <p class="error" id="error-message">Credenziali errate. Riprova.</p>
+    <div id="error-message">Credenziali errate. Riprova.</div>
   </div>
 
   <script>
@@ -66,8 +68,7 @@
 
       if (user === "Noraai" && pass === "gianluca") {
         localStorage.setItem("auth", "true");
-        window.location.href = "/";
-
+        window.location.href = "index.html"; // anche "/" va bene se Vercel è configurato correttamente
       } else {
         document.getElementById("error-message").style.display = "block";
       }
