@@ -1,53 +1,51 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - NORA AI</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        .login-container {
-            max-width: 350px;
-            margin: 100px auto;
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            text-align: center;
-        }
+  <meta charset="UTF-8">
+  <title>NORA AI – Home</title>
 
-        input[type="text"],
-        input[type="password"] {
-            width: 100%;
-            padding: 12px;
-            margin-top: 10px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-        }
+  <!-- Protezione: se non sei loggato torna al login -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!localStorage.getItem("auth")) {
+        window.location.href = "login.html";
+      }
+    });
+  </script>
 
-        button {
-            margin-top: 20px;
-            width: 100%;
-            padding: 12px;
-            background-color: #4da6ff;
-            border: none;
-            color: white;
-            font-size: 16px;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #388de0;
-        }
-    </style>
+  <!-- Font Awesome icone  -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="login-container">
-        <h2>Login NORA AI</h2>
-        <input type="text" placeholder="Username" />
-        <input type="password" placeholder="Password" />
-        <button onclick="location.href='index.html'">Entra</button>
+
+  <header>
+    <h1>NORA AI</h1>
+    <p>Benvenuto! Scegli una sezione.</p>
+  </header>
+
+  <div class="grid">
+    <div class="row">
+      <a href="performance.html" class="card"><i class="fas fa-chart-bar"></i><br>Performance</a>
+      <a href="domande.html"    class="card"><i class="fas fa-comment-dots"></i><br>Domande</a>
     </div>
+    <div class="row">
+      <a href="frasi.html"    class="card"><i class="fas fa-bolt"></i><br>Frasi Killer</a>
+      <a href="roleplay.html" class="card"><i class="fas fa-user-astronaut"></i><br>Role Play IA</a>
+      <a href="livecall.html" class="card"><i class="fas fa-headset"></i><br>Live Call</a>
+    </div>
+  </div>
+
+  <p style="margin-top:40px">
+    <a href="#" onclick="logout()" style="color:red;">Logout</a>
+  </p>
+
+  <script>
+    function logout () {
+      localStorage.removeItem("auth");
+      window.location.href = "login.html";
+    }
+  </script>
 </body>
 </html>
