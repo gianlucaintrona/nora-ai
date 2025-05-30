@@ -2,33 +2,48 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Home - NORA AI</title>
-  <link rel="stylesheet" href="style.css">
+  <title>NORA AI – Home</title>
+
+  <!-- Protezione: se non sei loggato torna al login -->
   <script>
-    // Protezione login
     if (localStorage.getItem("auth") !== "true") {
       window.location.href = "login.html";
     }
   </script>
+
+  <!-- Font Awesome icone  -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <header>
-    <h1>Benvenuto in NORA AI</h1>
-    <p>Seleziona una sezione per iniziare</p>
+    <h1>NORA AI</h1>
+    <p>Benvenuto! Scegli una sezione.</p>
   </header>
 
   <div class="grid">
     <div class="row">
-      <a href="livecall.html" class="card"><i class="fas fa-headset"></i>Live Call</a>
-      <a href="performance.html" class="card"><i class="fas fa-chart-line"></i>Performance</a>
+      <a href="performance.html" class="card"><i class="fas fa-chart-bar"></i><br>Performance</a>
+      <a href="domande.html"    class="card"><i class="fas fa-comment-dots"></i><br>Domande</a>
     </div>
     <div class="row">
-      <a href="domande.html" class="card"><i class="fas fa-question"></i>Domande</a>
-      <a href="frasi.html" class="card"><i class="fas fa-comment-alt"></i>Frasi</a>
-      <a href="roleplay.html" class="card"><i class="fas fa-user-circle"></i>Roleplay</a>
+      <a href="frasi.html"    class="card"><i class="fas fa-bolt"></i><br>Frasi Killer</a>
+      <a href="roleplay.html" class="card"><i class="fas fa-user-astronaut"></i><br>Role Play IA</a>
+      <a href="livecall.html" class="card"><i class="fas fa-headset"></i><br>Live Call</a>
     </div>
   </div>
 
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <p style="margin-top:40px">
+    <a href="#" onclick="logout()" style="color:red;">Logout</a>
+  </p>
+
+  <script>
+    function logout () {
+      localStorage.removeItem("auth");
+      window.location.href = "login.html";
+    }
+  </script>
 </body>
 </html>
